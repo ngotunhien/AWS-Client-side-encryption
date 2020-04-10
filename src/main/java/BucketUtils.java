@@ -1,3 +1,4 @@
+//refer from mattua github. Thanks mattua
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -11,29 +12,17 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
 
-/**
- * Created by mattua on 23/07/2016.
- */
-
 
     public class BucketUtils {
-
     private static final boolean IS_WINDOWS = System.getProperty( "os.name" ).contains( "indow" );
-
-
     public static void deleteAllBuckets(AmazonS3Client s3Client) throws Exception {
         for (Bucket bucket:s3Client.listBuckets()){
 
             System.out.println("deleting bucket.."+ bucket.getName());
             BucketUtils.deleteBucket(bucket.getName(), s3Client);
-
         }
     }
-
-
-
         public static void deleteBucket(String bucketName,AmazonS3Client s3client) throws IOException {
-
             try {
                 System.out.println("Deleting S3 bucket: " + bucketName);
                 ObjectListing objectListing = s3client.listObjects(bucketName);
@@ -56,7 +45,6 @@ import java.util.Iterator;
                     s3client.deleteVersion(bucketName, s.getKey(), s.getVersionId());
                 }
                 s3client.deleteBucket(bucketName);
-
 
             } catch (AmazonServiceException ase) {
                 System.out.println("Caught an AmazonServiceException, which " +
@@ -81,17 +69,9 @@ import java.util.Iterator;
     public static String readFileFromResources(String fileName)
             throws Exception
     {
-
         String path = S3JavaSDKExample.class.getResource(fileName).toURI().getPath();
-
         String osAppropriatePath = IS_WINDOWS ? path.substring(1) : path;
-
-
         byte[] encoded = Files.readAllBytes(Paths.get(osAppropriatePath));
-
-
         return new String(encoded);
     }
-
 }
-
