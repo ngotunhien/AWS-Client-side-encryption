@@ -1,3 +1,4 @@
+/*
 # AWS-Client-side-encryption
 # Thanks to mattua's youtube and github
 # I studied mattua: https://github.com/mattua/
@@ -12,3 +13,4 @@ mvn -B archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -Dgroup
 cd C:\Users\NTN\steven-app2
 
 mvn package
+*/
