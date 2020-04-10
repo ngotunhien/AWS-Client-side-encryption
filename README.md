@@ -7,7 +7,7 @@
 
 #mvn -B archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DgroupId=org.jolenengo.steven -DartifactId=steven-app2
 	
-#	edit pom.xml... (see my porn.xml file)
+#Then edit pom.xml... (see my porn.xml file)
 	
 #cd C:\Users\NTN\steven-app2
 
